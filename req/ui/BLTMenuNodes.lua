@@ -285,8 +285,8 @@ Hooks:Add("CoreMenuData.LoadDataMenu", "BLT.CoreMenuData.LoadDataMenu", function
 		add_blt_settings_node(menu)
 		inject_menu_options(menu, "options", point, {
 			menu_item_divider,
-			menu_item_mods,
-			menu_item_options,
+		-- 	menu_item_mods,
+		-- 	menu_item_options,
 			menu_item_keybinds
 		})
 	elseif menu_id == "pause_menu" then
@@ -296,7 +296,7 @@ Hooks:Add("CoreMenuData.LoadDataMenu", "BLT.CoreMenuData.LoadDataMenu", function
 		add_blt_settings_node(menu)
 		inject_menu_options(menu, "options", point, {
 			menu_item_divider,
-			menu_item_options,
+			-- menu_item_options,
 			menu_item_keybinds
 		})
 	end

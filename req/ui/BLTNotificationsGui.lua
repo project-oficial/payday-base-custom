@@ -496,25 +496,25 @@ function BLTNotificationsGui:input_focus()
 	return nil
 end
 
-MenuHelper:AddComponent("blt_notifications", BLTNotificationsGui)
+-- MenuHelper:AddComponent("blt_notifications", BLTNotificationsGui)
 
 --------------------------------------------------------------------------------
 -- Patch main menu to add notifications menu component
 
-Hooks:Add("CoreMenuData.LoadDataMenu", "BLTNotificationsGui.CoreMenuData.LoadDataMenu", function(menu_id, menu)
-	if menu_id ~= "start_menu" then
-		return
-	end
+-- Hooks:Add("CoreMenuData.LoadDataMenu", "BLTNotificationsGui.CoreMenuData.LoadDataMenu", function(menu_id, menu)
+-- 	if menu_id ~= "start_menu" then
+-- 		return
+-- 	end
 
-	for _, node in ipairs(menu) do
-		if node.name == "main" then
-			if node.menu_components then
-				node.menu_components = node.menu_components .. " blt_notifications"
-			elseif _G.CommunityChallengesGui then
-				node.menu_components = "player_profile menuscene_info new_heists game_installing debug_quicklaunch community_challenges blt_notifications"
-			else
-				node.menu_components = "player_profile menuscene_info new_heists game_installing debug_quicklaunch blt_notifications"
-			end
-		end
-	end
-end)
+-- 	for _, node in ipairs(menu) do
+-- 		if node.name == "main" then
+-- 			if node.menu_components then
+-- 				node.menu_components = node.menu_components .. " blt_notifications"
+-- 			elseif _G.CommunityChallengesGui then
+-- 				node.menu_components = "player_profile menuscene_info new_heists game_installing debug_quicklaunch community_challenges blt_notifications"
+-- 			else
+-- 				node.menu_components = "player_profile menuscene_info new_heists game_installing debug_quicklaunch blt_notifications"
+-- 			end
+-- 		end
+-- 	end
+-- end)

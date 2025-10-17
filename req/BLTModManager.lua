@@ -241,14 +241,14 @@ function BLTModManager:_RunAutoCheckForUpdates()
 
 	-- Start checking all enabled mods for updates
 	local count = 0
-	for _, mod in ipairs(self:Mods()) do
-		for _, update in ipairs(mod:GetUpdates()) do
-			if update:IsEnabled() then
-				update:CheckForUpdates(callback(self, self, "clbk_got_update"))
-				count = count + 1
-			end
-		end
-	end
+	-- for _, mod in ipairs(self:Mods()) do
+	-- 	for _, update in ipairs(mod:GetUpdates()) do
+	-- 		if update:IsEnabled() then
+	-- 			update:CheckForUpdates(callback(self, self, "clbk_got_update"))
+	-- 			count = count + 1
+	-- 		end
+	-- 	end
+	-- end
 
 	-- -- Remove notification if not getting updates
 	if count < 1 and self._updates_notification then
@@ -280,27 +280,27 @@ function BLTModManager:clbk_got_update(update, required, reason)
 		end
 
 		-- Add notification if we need updates
-		if table.size(BLT.Downloads:pending_downloads()) > 0 then
-			local icon, rect = tweak_data.hud_icons:get_icon_data("csb_pagers")
-			self._updates_notification = BLT.Notifications:add_notification({
-				title = managers.localization:text("blt_checking_updates_required"),
-				text = managers.localization:text("blt_checking_updates_required_help"),
-				icon = icon,
-				icon_texture_rect = rect,
-				color = Color.white,
-				priority = 1000
-			})
-		else
-			local icon, rect = tweak_data.hud_icons:get_icon_data("csb_pagers")
-			self._updates_notification = BLT.Notifications:add_notification({
-				title = managers.localization:text("blt_checking_updates_none_required"),
-				text = managers.localization:text("blt_checking_updates_none_required_help"),
-				icon = icon,
-				icon_texture_rect = rect,
-				color = Color.white,
-				priority = 0
-			})
-		end
+		-- if table.size(BLT.Downloads:pending_downloads()) > 0 then
+		-- 	local icon, rect = tweak_data.hud_icons:get_icon_data("csb_pagers")
+		-- 	self._updates_notification = BLT.Notifications:add_notification({
+		-- 		title = managers.localization:text("blt_checking_updates_required"),
+		-- 		text = managers.localization:text("blt_checking_updates_required_help"),
+		-- 		icon = icon,
+		-- 		icon_texture_rect = rect,
+		-- 		color = Color.white,
+		-- 		priority = 1000
+		-- 	})
+		-- else
+		-- 	local icon, rect = tweak_data.hud_icons:get_icon_data("csb_pagers")
+		-- 	self._updates_notification = BLT.Notifications:add_notification({
+		-- 		title = managers.localization:text("blt_checking_updates_none_required"),
+		-- 		text = managers.localization:text("blt_checking_updates_none_required_help"),
+		-- 		icon = icon,
+		-- 		icon_texture_rect = rect,
+		-- 		color = Color.white,
+		-- 		priority = 0
+		-- 	})
+		-- end
 	end
 end
 
